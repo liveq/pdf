@@ -5,25 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>PDF 변환 도구 - PDF를 JPEG로 변환하거나 분할하세요</title>
-    <meta name="description" content="PDF 파일을 고품질 JPEG 이미지로 변환하거나, 여러 개의 작은 PDF 파일로 분할하세요. 브라우저에서 바로 작동하는 무료 온라인 도구입니다.">
-    <meta name="keywords" content="PDF to JPEG, PDF 변환, PDF 분할, PDF 나누기, 온라인 PDF 도구">
+    <title>무료 PDF 변환 도구 - JPEG 변환 & PDF 분할 | pdf.baal.co.kr</title>
+    <meta name="description" content="PDF를 고품질 JPEG 이미지로 변환하거나 여러 파일로 분할하세요. 무료, 빠르고 안전한 브라우저 기반 PDF 도구. 150/300 DPI 지원, 배치 처리, 페이지 선택 기능 제공.">
+    <meta name="keywords" content="PDF to JPEG, PDF 변환, PDF 분할, PDF 나누기, 온라인 PDF 도구, PDF to JPG, 무료 PDF 변환기, PDF 페이지 분리, 고화질 PDF 변환, 150 DPI, 300 DPI">
     <meta name="author" content="baal.co.kr">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://pdf.baal.co.kr">
+    <meta name="theme-color" content="#B8860B">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pdf.baal.co.kr">
-    <meta property="og:title" content="PDF 변환 도구 - PDF를 JPEG로 변환하거나 분할하세요">
-    <meta property="og:description" content="PDF 파일을 고품질 JPEG 이미지로 변환하거나, 여러 개의 작은 PDF 파일로 분할하세요.">
+    <meta property="og:title" content="무료 PDF 변환 도구 - JPEG 변환 & PDF 분할">
+    <meta property="og:description" content="PDF를 고품질 JPEG로 변환하거나 여러 파일로 분할하세요. 무료, 빠르고 안전한 브라우저 기반 도구. 150/300 DPI 지원, 배치 처리 가능.">
     <meta property="og:site_name" content="PDF 변환 도구">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:image" content="https://pdf.baal.co.kr/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://pdf.baal.co.kr">
-    <meta name="twitter:title" content="PDF 변환 도구 - PDF를 JPEG로 변환하거나 분할하세요">
-    <meta name="twitter:description" content="PDF 파일을 고품질 JPEG 이미지로 변환하거나, 여러 개의 작은 PDF 파일로 분할하세요.">
+    <meta name="twitter:title" content="무료 PDF 변환 도구 - JPEG 변환 & PDF 분할">
+    <meta name="twitter:description" content="PDF를 고품질 JPEG로 변환하거나 여러 파일로 분할하세요. 무료, 빠르고 안전한 브라우저 기반 도구.">
+    <meta name="twitter:image" content="https://pdf.baal.co.kr/og-image.jpg">
+
+    <!-- 구조화된 데이터 (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PDF 변환 도구",
+      "alternateName": "PDF Converter Tool",
+      "url": "https://pdf.baal.co.kr",
+      "description": "PDF 파일을 고품질 JPEG 이미지로 변환하거나 여러 개의 작은 PDF 파일로 분할할 수 있는 무료 온라인 도구입니다.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      },
+      "featureList": [
+        "PDF to JPEG 변환 (150/300 DPI)",
+        "배치 처리 (최대 3개 파일)",
+        "페이지 선택 (전체/범위/특정)",
+        "그레이스케일 변환",
+        "PDF 분할 (균등/페이지/범위)",
+        "다크모드 지원",
+        "한국어/영어 지원"
+      ],
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "author": {
+        "@type": "Organization",
+        "name": "baal.co.kr",
+        "url": "https://baal.co.kr"
+      }
+    }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -363,35 +403,83 @@
             cursor: pointer;
         }
 
-        .tooltip {
-            display: inline-block;
+        .help-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 16px;
             height: 16px;
             border-radius: 50%;
             background: var(--text-light);
             color: var(--primary-white);
-            text-align: center;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             cursor: help;
             position: relative;
-            margin-left: 4px;
+            margin-left: 6px;
+            transition: all var(--transition-base);
+            flex-shrink: 0;
         }
 
-        .tooltip:hover::after {
+        .help-icon:hover {
+            background: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
+        .help-icon::after {
             content: attr(data-tooltip);
             position: absolute;
-            bottom: 100%;
+            bottom: calc(100% + 10px);
             left: 50%;
             transform: translateX(-50%);
-            padding: 8px 12px;
+            padding: 12px 16px;
             background: var(--primary-black);
             color: var(--primary-white);
-            font-size: 12px;
-            white-space: nowrap;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            z-index: 1000;
+            font-size: 13px;
+            line-height: 1.5;
+            white-space: pre-line;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-base);
+            pointer-events: none;
+            z-index: 10000;
+            min-width: 200px;
+            max-width: 300px;
+            text-align: left;
+        }
+
+        .help-icon:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .help-icon::before {
+            content: '';
+            position: absolute;
+            bottom: calc(100% + 4px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid var(--primary-black);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-base);
+            z-index: 10000;
+        }
+
+        .help-icon:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .option-label-with-help {
+            display: flex;
+            align-items: center;
         }
 
         /* 버튼 */
@@ -748,16 +836,25 @@
                     <div class="radio-group">
                         <div class="radio-option">
                             <input type="radio" id="allPages" name="pageSelection" value="all" checked>
-                            <label for="allPages" data-ko="전체 페이지" data-en="All Pages">전체 페이지</label>
+                            <div class="option-label-with-help">
+                                <label for="allPages" data-ko="전체 페이지" data-en="All Pages">전체 페이지</label>
+                                <span class="help-icon" data-tooltip="PDF의 모든 페이지를 JPEG로 변환합니다.&#10;&#10;예: 100페이지 PDF → 100개 이미지">ⓘ</span>
+                            </div>
                         </div>
                         <div class="radio-option">
                             <input type="radio" id="pageRange" name="pageSelection" value="range">
-                            <label for="pageRange" data-ko="페이지 범위" data-en="Page Range">페이지 범위</label>
+                            <div class="option-label-with-help">
+                                <label for="pageRange" data-ko="페이지 범위" data-en="Page Range">페이지 범위</label>
+                                <span class="help-icon" data-tooltip="시작 페이지부터 끝 페이지까지 변환합니다.&#10;&#10;예: 3-5 입력 시 → 3, 4, 5 페이지만 변환">ⓘ</span>
+                            </div>
                             <input type="text" id="rangeInput" class="page-input" placeholder="3-5" disabled>
                         </div>
                         <div class="radio-option">
                             <input type="radio" id="specificPages" name="pageSelection" value="specific">
-                            <label for="specificPages" data-ko="특정 페이지" data-en="Specific Pages">특정 페이지</label>
+                            <div class="option-label-with-help">
+                                <label for="specificPages" data-ko="특정 페이지" data-en="Specific Pages">특정 페이지</label>
+                                <span class="help-icon" data-tooltip="원하는 페이지만 선택해서 변환합니다.&#10;&#10;쉼표(,)로 페이지 구분&#10;하이픈(-)으로 범위 지정&#10;&#10;예: 1,3,5-8 입력 시&#10;→ 1, 3, 5, 6, 7, 8 페이지 변환">ⓘ</span>
+                            </div>
                             <input type="text" id="specificInput" class="page-input" placeholder="1,3,5-8" disabled>
                         </div>
                     </div>
@@ -770,11 +867,17 @@
                     <div class="radio-group">
                         <div class="radio-option">
                             <input type="radio" id="mediumQuality" name="quality" value="150">
-                            <label for="mediumQuality" data-ko="중간 품질 (150 DPI) - 웹용" data-en="Medium Quality (150 DPI) - Web">중간 품질 (150 DPI) - 웹용</label>
+                            <div class="option-label-with-help">
+                                <label for="mediumQuality" data-ko="중간 품질 (150 DPI)" data-en="Medium Quality (150 DPI)">중간 품질 (150 DPI)</label>
+                                <span class="help-icon" data-tooltip="웹 사이트나 화면 보기용으로 적합합니다.&#10;&#10;파일 크기가 작고 처리 속도가 빠릅니다.&#10;&#10;권장: 웹 업로드, SNS 공유용">ⓘ</span>
+                            </div>
                         </div>
                         <div class="radio-option">
                             <input type="radio" id="highQuality" name="quality" value="300" checked>
-                            <label for="highQuality" data-ko="고품질 (300 DPI) - 인쇄용" data-en="High Quality (300 DPI) - Print">고품질 (300 DPI) - 인쇄용</label>
+                            <div class="option-label-with-help">
+                                <label for="highQuality" data-ko="고품질 (300 DPI)" data-en="High Quality (300 DPI)">고품질 (300 DPI)</label>
+                                <span class="help-icon" data-tooltip="인쇄용으로 적합한 고품질 이미지입니다.&#10;&#10;선명하고 깨끗한 결과물을 얻을 수 있습니다.&#10;&#10;권장: 인쇄, 문서 보관용">ⓘ</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -783,8 +886,10 @@
                 <div class="option-group">
                     <div class="checkbox-option">
                         <input type="checkbox" id="grayscale">
-                        <label for="grayscale" data-ko="그레이스케일 (흑백)" data-en="Grayscale">그레이스케일 (흑백)</label>
-                        <span class="tooltip" data-tooltip="파일 크기 30-50% 감소">ⓘ</span>
+                        <div class="option-label-with-help">
+                            <label for="grayscale" data-ko="그레이스케일 (흑백)" data-en="Grayscale">그레이스케일 (흑백)</label>
+                            <span class="help-icon" data-tooltip="컬러를 흑백으로 변환합니다.&#10;&#10;✓ 파일 크기 30-50% 감소&#10;✓ 흑백 인쇄 시 잉크 절약&#10;✓ 문서 보관용으로 적합">ⓘ</span>
+                        </div>
                     </div>
                 </div>
 
@@ -811,22 +916,34 @@
                     <div class="radio-group">
                         <div class="radio-option">
                             <input type="radio" id="splitEqual" name="splitMethod" value="equal" checked>
-                            <label for="splitEqual" data-ko="균등 분할" data-en="Equal Division">균등 분할</label>
-                            <input type="number" id="equalParts" class="page-input" min="2" max="100" value="2">
+                            <div class="option-label-with-help">
+                                <label for="splitEqual" data-ko="균등 분할" data-en="Equal Division">균등 분할</label>
+                                <span class="help-icon" data-tooltip="전체 PDF를 같은 크기로 나눕니다.&#10;&#10;예: 100페이지를 2개로 분할&#10;→ 50페이지 + 50페이지&#10;&#10;예: 100페이지를 3개로 분할&#10;→ 34페이지 + 33페이지 + 33페이지">ⓘ</span>
+                            </div>
+                            <input type="number" id="equalParts" class="page-input" min="2" max="100" value="2" placeholder="분할할 개수">
                         </div>
                         <div class="radio-option">
                             <input type="radio" id="splitByPages" name="splitMethod" value="pages">
-                            <label for="splitByPages" data-ko="매 N페이지마다" data-en="Every N Pages">매 N페이지마다</label>
-                            <input type="number" id="pagesPerSplit" class="page-input" min="1" max="100" value="10" disabled>
+                            <div class="option-label-with-help">
+                                <label for="splitByPages" data-ko="매 N페이지마다" data-en="Every N Pages">매 N페이지마다</label>
+                                <span class="help-icon" data-tooltip="지정한 페이지 수마다 파일을 나눕니다.&#10;&#10;예: 10페이지마다 분할&#10;100페이지 PDF&#10;→ 1-10, 11-20, ... (총 10개 파일)&#10;&#10;예: 25페이지마다 분할&#10;100페이지 PDF&#10;→ 1-25, 26-50, 51-75, 76-100">ⓘ</span>
+                            </div>
+                            <input type="number" id="pagesPerSplit" class="page-input" min="1" max="100" value="10" placeholder="페이지 수" disabled>
                         </div>
                         <div class="radio-option">
                             <input type="radio" id="splitRange" name="splitMethod" value="range">
-                            <label for="splitRange" data-ko="페이지 범위" data-en="Page Ranges">페이지 범위</label>
+                            <div class="option-label-with-help">
+                                <label for="splitRange" data-ko="페이지 범위" data-en="Page Ranges">페이지 범위</label>
+                                <span class="help-icon" data-tooltip="원하는 페이지 범위만 추출합니다.&#10;&#10;쉼표(,)로 범위 구분&#10;하이픈(-)으로 범위 지정&#10;&#10;예: 1-10, 11-20 입력 시&#10;→ 1-10페이지 파일 1개&#10;→ 11-20페이지 파일 1개&#10;(총 2개 파일 생성)">ⓘ</span>
+                            </div>
                             <input type="text" id="splitRanges" class="page-input" placeholder="1-10, 11-20" disabled>
                         </div>
                         <div class="radio-option">
                             <input type="radio" id="splitAll" name="splitMethod" value="all">
-                            <label for="splitAll" data-ko="모든 페이지 분리" data-en="Split All Pages">모든 페이지 분리</label>
+                            <div class="option-label-with-help">
+                                <label for="splitAll" data-ko="모든 페이지 분리" data-en="Split All Pages">모든 페이지 분리</label>
+                                <span class="help-icon" data-tooltip="각 페이지를 개별 PDF 파일로 분리합니다.&#10;&#10;예: 100페이지 PDF&#10;→ 1페이지 파일 100개 생성&#10;&#10;주의: 페이지가 많으면 시간이 걸립니다.">ⓘ</span>
+                            </div>
                         </div>
                     </div>
                 </div>
